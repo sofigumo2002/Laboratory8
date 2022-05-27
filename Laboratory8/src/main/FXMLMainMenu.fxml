@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="bp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="1020.0" style="-fx-background-color: F0D9FF;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FXMLMainMenuController">
+   <left>
+      <VBox prefHeight="471.0" prefWidth="280.0" style="-fx-background-color: F8ECD1;" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#Home" prefHeight="114.0" prefWidth="280.0" style="-fx-background-color: #7F7C82; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" text="Home">
+               <font>
+                  <Font name="Cambria Bold" size="36.0" />
+               </font>
+            </Button>
+            <MenuButton mnemonicParsing="false" onAction="#elementarySortingOnAction" prefHeight="138.0" prefWidth="280.0" style="-fx-background-color: #7F7C82; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" text="Elementary Sorting" textAlignment="CENTER">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#bubbleSortOnAction" text="BubbleSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#improvedBubbleSortOnAction" text="Improved BubbleSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#selectionSortOnAction" text="SelectionSort" />
+                  <MenuItem mnemonicParsing="false" onAction="#countingSortOnAction" text="Counting Sort" />
+               </items>
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </MenuButton>
+            <MenuButton mnemonicParsing="false" onAction="#complexSortingOnAction" prefHeight="133.0" prefWidth="280.0" style="-fx-background-color: #7F7C82; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" text="Complex Sorting" textAlignment="CENTER">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#quickSortOnAction" text="Quick Sort" />
+                  <MenuItem mnemonicParsing="false" text="Action 2" />
+               </items>
+               <font>
+                  <Font name="Cambria Bold" size="24.0" />
+               </font>
+            </MenuButton>
+            <Button mnemonicParsing="false" onMouseClicked="#Exit" prefHeight="125.0" prefWidth="280.0" style="-fx-background-color: #7F7C82; -fx-border-color: black; -fx-border-width: 0px 0px 2px 0px;" text="Exit">
+               <font>
+                  <Font name="Cambria Bold" size="36.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <AnchorPane fx:id="ap" prefHeight="473.0" prefWidth="696.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="172.0" layoutY="198.0" text="Laboratory N°8">
+               <font>
+                  <Font name="Cambria Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
