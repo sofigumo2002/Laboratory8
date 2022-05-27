@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="main.FXMLCountingSortController">
+   <children>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="838.0">
+         <children>
+            <Pane prefHeight="60.0" prefWidth="838.0" style="-fx-background-color: #7F7C82;">
+               <children>
+                  <Label layoutX="185.0" layoutY="8.0" text="Counting Sorting Algorithm" textAlignment="CENTER">
+                     <font>
+                        <Font name="Cambria Bold" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Label layoutX="42.0" layoutY="71.0" text="No sorted array">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="countingSortTableView" layoutX="42.0" layoutY="97.0" prefHeight="84.0" prefWidth="753.0">
+               <columns>
+                  <TableColumn fx:id="tableColumn0" prefWidth="75.0" text="index0" />
+                  <TableColumn fx:id="tableColumn1" prefWidth="75.0" text="index1" />
+                  <TableColumn fx:id="tableColumn2" prefWidth="75.0" text="index2" />
+                  <TableColumn fx:id="tableColumn3" prefWidth="75.0" text="index 3" />
+                  <TableColumn fx:id="tableColumn4" prefWidth="75.0" text="index4" />
+                  <TableColumn fx:id="tableColumn5" prefWidth="75.0" text="index5" />
+                  <TableColumn fx:id="tableColumn6" prefWidth="75.0" text="index6" />
+                  <TableColumn fx:id="tableColumn7" prefWidth="75.0" text="index7" />
+                  <TableColumn fx:id="tableColumn8" prefWidth="75.0" text="index8" />
+                  <TableColumn fx:id="tableColumn9" prefWidth="75.0" text="index9" />
+               </columns>
+            </TableView>
+            <Label layoutX="42.0" layoutY="302.0" text="Counting Sorted Array">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="resultCountingSortTableView" layoutX="42.0" layoutY="331.0" prefHeight="84.0" prefWidth="753.0">
+               <columns>
+                  <TableColumn fx:id="tableColumn00" prefWidth="75.0" text="index0" />
+                  <TableColumn fx:id="tableColumn11" prefWidth="75.0" text="index1" />
+                  <TableColumn fx:id="tableColumn22" prefWidth="75.0" text="index2" />
+                  <TableColumn fx:id="tableColumn33" prefWidth="75.0" text="index 3" />
+                  <TableColumn fx:id="tableColumn44" prefWidth="75.0" text="index4" />
+                  <TableColumn fx:id="tableColumn55" prefWidth="75.0" text="index5" />
+                  <TableColumn fx:id="tableColumn66" prefWidth="75.0" text="index6" />
+                  <TableColumn fx:id="tableColumn77" prefWidth="75.0" text="index7" />
+                  <TableColumn fx:id="tableColumn88" prefWidth="75.0" text="index8" />
+                  <TableColumn fx:id="tableColumn99" prefWidth="75.0" text="index9" />
+               </columns>
+            </TableView>
+            <Button fx:id="btnStart" layoutX="124.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnStartOnAction" style="-fx-background-color: #7F7C82;" text="Start">
+               <font>
+                  <Font name="Cambria Bold" size="13.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnRandomize" layoutX="231.0" layoutY="415.0" mnemonicParsing="false" onAction="#btnRandomizeOnAction" style="-fx-background-color: #7F7C82;" text="Randomize">
+               <font>
+                  <Font name="Cambria Bold" size="13.0" />
+               </font>
+            </Button>
+            <Label layoutX="42.0" layoutY="188.0" text="Counter Array">
+               <font>
+                  <Font name="Cambria" size="14.0" />
+               </font>
+            </Label>
+            <TableView fx:id="couterTableView" layoutX="41.0" layoutY="206.0" prefHeight="92.0" prefWidth="762.0">
+              <columns>
+                <TableColumn fx:id="tableViewi0" prefWidth="37.600006103515625" text="i0" />
+                <TableColumn fx:id="tableViewi1" prefWidth="37.600006103515625" text="i1" />
+                  <TableColumn fx:id="tableViewi2" prefWidth="37.600006103515625" text="i2" />
+                  <TableColumn fx:id="tableViewi3" prefWidth="37.600006103515625" text="i3" />
+                  <TableColumn fx:id="tableViewi4" prefWidth="37.600006103515625" text="i4" />
+                  <TableColumn fx:id="tableViewi5" prefWidth="37.600006103515625" text="i5" />
+                  <TableColumn fx:id="tableViewi6" prefWidth="37.600006103515625" text="i6" />
+                  <TableColumn fx:id="tableViewi7" prefWidth="37.600006103515625" text="i7" />
+                  <TableColumn fx:id="tableViewi8" prefWidth="37.600006103515625" text="i8" />
+                  <TableColumn fx:id="tableViewi9" prefWidth="37.600006103515625" text="i9" />
+                  <TableColumn fx:id="tableViewi010" prefWidth="37.600006103515625" text="i10" />
+                  <TableColumn fx:id="tableViewi11" prefWidth="37.600006103515625" text="i11" />
+                  <TableColumn fx:id="tableViewi12" prefWidth="37.600006103515625" text="i12" />
+                  <TableColumn fx:id="tableViewi13" prefWidth="37.600006103515625" text="i13" />
+                  <TableColumn fx:id="tableViewi14" prefWidth="37.600006103515625" text="i14" />
+                  <TableColumn fx:id="tableViewi15" prefWidth="37.600006103515625" text="i15" />
+                  <TableColumn fx:id="tableViewi16" prefWidth="37.600006103515625" text="i16" />
+                  <TableColumn fx:id="tableViewi17" prefWidth="37.600006103515625" text="i17" />
+                  <TableColumn fx:id="tableViewi18" prefWidth="37.600006103515625" text="i18" />
+                  <TableColumn fx:id="tableViewi19" prefWidth="37.600006103515625" text="i19" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

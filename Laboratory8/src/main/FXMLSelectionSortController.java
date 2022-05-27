@@ -20,7 +20,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.util.Callback;
 
 /**
@@ -28,23 +27,12 @@ import javafx.util.Callback;
  *
  * @author sofia
  */
-public class FXMLBubbleSortController implements Initializable {
-    
+public class FXMLSelectionSortController implements Initializable {
+
     Integer array[];
+
     @FXML
-    private AnchorPane ap;
-    @FXML
-    private TextField interactionsTextField;
-    
-    @FXML
-    private TableView<List<String>> bubbleSortTableView;
-    
-    @FXML
-    private TableView<List<String>> resultBubbleSortTableView;
-    @FXML
-    private Button btnStart;
-    @FXML
-    private Button btnRandomize;
+    private TableView<List<String>> selectionSortTableView;
     @FXML
     private TableColumn<List<String>, String> tableColumn0;
     @FXML
@@ -65,8 +53,11 @@ public class FXMLBubbleSortController implements Initializable {
     private TableColumn<List<String>, String> tableColumn8;
     @FXML
     private TableColumn<List<String>, String> tableColumn9;
+    @FXML
+    private TextField interactionsTextField;
 
-    //tabla ordenada
+    @FXML
+    private TableView<List<String>> resulltSelectionSortTableView;
     @FXML
     private TableColumn<List<String>, String> tableColumn00;
     @FXML
@@ -88,12 +79,21 @@ public class FXMLBubbleSortController implements Initializable {
     @FXML
     private TableColumn<List<String>, String> tableColumn99;
 
+    @FXML
+    private Button btnStart;
+    @FXML
+    private Button btnRandomize;
+    @FXML
+    private TextField textMin;
+    @FXML
+    private TextField textMinIndex;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+       // TODO
         this.array = new Integer[10];
         util.Utility.fill(this.array);
         //Table View Bubble
@@ -222,26 +222,49 @@ public class FXMLBubbleSortController implements Initializable {
 
         //procedemos a mostrar el contenido del table view 
         if (array != null) {
-            this.bubbleSortTableView.setItems(getData());
+            this.selectionSortTableView.setItems(getData());
         }
     }
 
     @FXML
     private void btnStartOnAction(ActionEvent event) {
-        this.bubbleSort(array);
+        this.selectionSort(array);
         if (array != null) {
-            this.resultBubbleSortTableView.setItems(getData());
+            this.resulltSelectionSortTableView.setItems(getData());
         }
     }
 
     @FXML
     private void btnRandomizeOnAction(ActionEvent event) {
         util.Utility.fill(this.array);//volvemos a llenar el arreglo
-        this.interactionsTextField.setText(" "); 
-        this.resultBubbleSortTableView.setItems(null);//limpiamos el contenido del table
+        this.interactionsTextField.setText(" ");
+        this.textMin.setText(" ");
+        this.textMinIndex.setText(" ");
+        this.resulltSelectionSortTableView.setItems(null);//limpiamos el contenido del table
     }
 
-    private ObservableList<List<String>> getData() {
+    //Este metodo es igual al de Elementary, se le da los valores al min y min index 
+    public void selectionSort(Integer[] array) {
+        int iteractionsCounter = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            int min = array[i];
+            int minIndex = i;
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < min) {
+                    min = array[j];
+                    minIndex = j;
+                }//if
+                iteractionsCounter++;
+            }//for j
+            textMin.setText(textMin.getText() + min + " ");
+            textMinIndex.setText(textMinIndex.getText() + minIndex + " ");
+            array[minIndex] = array[i];
+            array[i] = min;
+        }//for i
+        this.interactionsTextField.setText(String.valueOf(iteractionsCounter));
+    }//selectionSort
+
+     private ObservableList<List<String>> getData() {
         ObservableList<List<String>> data = FXCollections.observableArrayList();
         List<String> arrayList = new ArrayList<>();
         for (int i = 0; i < array.length; i++) {
@@ -250,19 +273,5 @@ public class FXMLBubbleSortController implements Initializable {
         data.add(arrayList);
         return data;
     }
-
-    public void bubbleSort(Integer a[]) {
-        int iteractionsCounter = 0;
-        for (int i = 1; i < a.length; i++) {
-            for (int j = 0; j < a.length - i; j++) {
-                if (a[j] > a[j + 1]) {
-                    int aux = a[j];
-                    a[j] = a[j + 1];
-                    a[j + 1] = aux;
-                }//if
-                iteractionsCounter++;//incremento el numero de interacciones
-            }//for j
-        }
-        this.interactionsTextField.setText(String.valueOf(iteractionsCounter));
-    }//end bubbleSort
 }
+

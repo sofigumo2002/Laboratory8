@@ -49,36 +49,40 @@ public class FXMLMainMenuController implements Initializable {
         System.exit(0); //FORMA VALIDA
     }
     
-    @FXML
-    private void bubbleSortOnAction(ActionEvent event) {
-        loadPage(getClass().getResource("FXMLBubbleSort.fxml"),bp);
-    }
-
+    //Elementary
     @FXML
     private void elementarySortingOnAction(ActionEvent event) {
         loadPage(getClass().getResource("FXMLElementary.fxml"), bp);
     }
 
     @FXML
-    private void quickSortOnAction(ActionEvent event) {
+    private void bubbleSortOnAction(ActionEvent event) {
+        loadPage(getClass().getResource("FXMLBubbleSort.fxml"),bp);
     }
 
+    @FXML
+    private void improvedBubbleSortOnAction(ActionEvent event) {
+         loadPage(getClass().getResource("FXMLImprovedBubbleSort.fxml"),bp);
+    }
+    
+    @FXML
+    private void selectionSortOnAction(ActionEvent event) {
+        loadPage(getClass().getResource("FXMLSelectionSort.fxml"),bp);
+    }
+    
+    @FXML
+    private void countingSortOnAction(ActionEvent event) {
+        loadPage(getClass().getResource("FXMLCountingSort.fxml"),bp);
+    }
+    
+    ///Complex
     @FXML
     private void complexSortingOnAction(ActionEvent event) {
         loadPage(getClass().getResource("FXMLComplex.fxml"), bp);
     }
     
     @FXML
-    private void improvedBubbleSortOnAction(ActionEvent event) {
-         loadPage(getClass().getResource("FXMLImprovedBubbleSort.fxml"),bp);
-    }
-
-    @FXML
-    private void selectionSortOnAction(ActionEvent event) {
-    }
-
-    @FXML
-    private void countingSortOnAction(ActionEvent event) {
+    private void quickSortOnAction(ActionEvent event) {
     }
     
     public static void loadPage(URL ui, BorderPane bp){
