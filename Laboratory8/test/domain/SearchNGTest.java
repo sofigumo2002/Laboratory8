@@ -1,20 +1,23 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/EmptyTestNGTest.java to edit this template
  */
 package domain;
 
 import static org.testng.Assert.*;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
  *
  * @author wandagranados
  */
-public class ElementaryNGTest {
+public class SearchNGTest {
 
-    public ElementaryNGTest() {
+    public SearchNGTest() {
     }
 
     //Numeros enteros
@@ -105,76 +108,83 @@ public class ElementaryNGTest {
         Object array6[] = new Object[1000];//Palabras
         fillArray6(array6);
 
-        //Mostramos por consola de los primeros 200 elementos
-        System.out.println("\n--------------------------UNSORTED ARRAYS------------------------------");
-        System.out.println("Numeros enteros Array 1: " + show(array1, 200));
-        System.out.println("Characteres Array 2: " + show(array2, 200));
-        System.out.println("Numeros Negativos Array 3: " + show(array3, 200));
-        System.out.println("Numeros Pares Array 4: " + show(array4, 200));
-        System.out.println("Numeros ImPares Array 5: " + show(array5, 200));
-        System.out.println("Palabras Array 6: " + show(array6, 200));
-
-        //Instancia de Elementary, si los arreglos no estan ordenados, los debe ordenar
-        Elementary sort = new Elementary();
-
-        System.out.println("\n--------------------------SORTED ARRAYS------------------------------");
-        if (!isSorted(array1)) {
-            sort.bubbleSort(array1);
-            System.out.println("Números enteros Array 1 Sorted: " + show(array1, 200));
+        //Probamos busquedas binarias en los arreglos ordenados
+        System.out.println("\n--------------------------BUSQUEDA EN LOS ARRAYS------------------------------");
+        //Uso de IterativeSearch en Array1 Numeros Enteros
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array1");
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array1, util.Utility.random());
         }
-        if (!isSorted(array2)) {
-            sort.improvedBubbleSort(array2);
-            System.out.println("Caracteres Array 2 Sorted: " + show(array2, 200));
-        }
-        if (!isSorted(array3)) {
-            sort.selectionSort(array3);
-            System.out.println("Números Negativos Array 3 Sorted: " + show(array3, 200));
-        }
-        if (!isSorted(array4)) {
-            sort.bubbleSort(array4);
-            System.out.println("Números Pares Array 4 Sorted: " + show(array4, 200));
-        }
-        //Si los arrays 5 y 6 no están ordenados, proceda a ordenarlos utilizando cualquier algoritmo elemental de ordenamiento. 
-        if (!isSorted(array5)) {
-            sort.bubbleSort(array5);
-            System.out.println("Números Impares Array 5 Sorted: " + show(array5, 200));
-        }
-        if (!isSorted(array6)) {
-            sort.improvedBubbleSort(array6);
-            System.out.println("Palabras Array 6 Sorted: " + show(array6, 200));
+        //Uso de BinarySearch en Array1
+        System.out.println("BinarySearch Array1");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array1, util.Utility.random());
         }
 
-    }//end test
-
-    private String show(Object[] array, int size) {
-        String result = "";
-        for (int i = 0; i <= size; i++) {
-            if (i < size) {
-                result += array[i] + ",";
-            } else {
-                result += array[i];
-            }
-
+        //Uso de IterativeSearch en Array2 //Caracteres
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array2");
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array2, util.Utility.randomCharacter());
         }
-        return result;
-    }
-
-//    private boolean isSorted(Object[] a){
-//        for (int i = 0; i < a.length; i++) {
-//            if(util.Utility.greaterT(a[i], a[i + 1])){
-//                return false;
-//            }
-//        }
-//        return true;
-//    }
-    
-    private boolean isSorted(Object[] a) {
-        boolean sorted;
-        for (int i = 0; i < a.length-1; i++) {
-          if(util.Utility.greaterT(a[i],a[i+1])) 
-              return false;
+        //Uso de BinarySearch en Array2
+        System.out.println("BinarySearch Array2");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array2, util.Utility.randomCharacter());
         }
-        return true;
+
+        //Uso de IterativeSearch en Array3 Numeros Negativos
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array3");
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array3, 1 + (int) Math.floor(Math.random() * 99) - 100);
+        }
+        //Uso de BinarySearch en Array3
+        System.out.println("BinarySearch Array3");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array3, 1 + (int) Math.floor(Math.random() * 99) - 100);
+        }
+
+        //Uso de IterativeSearch en Array4 Numeros Pares
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array4");
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array4, util.Utility.random());
+        }
+        //Uso de BinarySearch en Array4
+        System.out.println("BinarySearch Array4");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array4, util.Utility.random());
+        }
+
+        //Uso de IterativeSearch en Array5 Numeros Impares
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array5");
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array4, util.Utility.random());
+        }
+        System.out.println(" ");
+        //Uso de BinarySearch en Array5
+        System.out.println("BinarySearch Array5");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array4, util.Utility.random());
+        }
+
+        //Uso de IterativeSearch en Array6 Letras
+        System.out.println(" ");
+        System.out.println("IterativeSearch Array6");
+        String[] words = wordArray();
+        for (int i = 0; i < 20; i++) {
+            searchIterative(array6, words[util.Utility.random(words.length)]);
+        }
+        System.out.println(" ");
+        //Uso de BinarySearch en Array6
+        System.out.println("BinarySearch Array6");
+        for (int i = 0; i < 20; i++) {
+            searchBinary(array6, words[util.Utility.random(words.length)]);
+        }
+
     }
 
     private void searchIterative(Object[] array, Object value) {
@@ -194,4 +204,5 @@ public class ElementaryNGTest {
             System.out.println("El elemento[" + value + "] no existe en el arreglo");
         }
     }
+
 }
